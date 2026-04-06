@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { teamMembers } from "../constants";
 import { Cpu, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -7,8 +7,25 @@ const TeamCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // Nombre de cartes visibles à la fois
-  const cardsPerView = 3;
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+  useEffect(() => {
+    const updateCards = () => {
+      if (window.innerWidth < 640) {
+        setCardsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    updateCards();
+    window.addEventListener("resize", updateCards);
+
+    return () => window.removeEventListener("resize", updateCards);
+  }, []);
+
   const totalSlides = Math.ceil(teamMembers.length / cardsPerView);
 
   const slideVariants = {
@@ -92,12 +109,12 @@ const TeamCarousel: React.FC = () => {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
-              className="flex gap-8 justify-center"
+              className="flex gap-8 justify-center items-stretch"
             >
               {getCurrentMembers().map((member) => (
                 <motion.div
                   key={member.id}
-                  className="shrink-0 w-80 group"
+                  className="shrink-0 w-full sm:w-[45%] lg:w-80 group"
                   whileHover={{ scale: 1.05, y: -10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
