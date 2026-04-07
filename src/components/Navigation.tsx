@@ -26,9 +26,12 @@ const Navigation: React.FC = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-white tracking-tighter">
+        <a
+          className="cursor-pointer text-2xl font-bold text-white tracking-tighter"
+          href="/"
+        >
           DEV<span className="text-cyan-400">NETIX</span>
-        </div>
+        </a>
 
         <div className="hidden md:flex items-center gap-8">
           {["Services", "Equipe", "Methodologie", "Contact"].map((item) => (
@@ -40,9 +43,12 @@ const Navigation: React.FC = () => {
               {item}
             </a>
           ))}
-          <button className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors">
+          <a
+            className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors cursor-pointer"
+            href="#contact"
+          >
             Démarrer
-          </button>
+          </a>
         </div>
 
         <button
@@ -66,8 +72,9 @@ const Navigation: React.FC = () => {
           {["Services", "Equipe", "Methodologie", "Contact"].map((item) => (
             <a
               key={item}
-              href="#"
+              href={`#${item.toLowerCase()}`}
               className="block text-gray-300 hover:text-white py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item}
             </a>

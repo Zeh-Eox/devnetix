@@ -15,9 +15,9 @@ const Services: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Nos Domaines d'<span className="text-cyan-400">Excellence</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Une expertise complète pour accompagner votre transformation
-            digitale de A à Z
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+            Une expertise globale pour piloter et réussir votre transformation
+            digitale de bout en bout.
           </p>
         </motion.div>
 

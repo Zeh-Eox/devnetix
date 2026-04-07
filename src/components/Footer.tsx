@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { FaGithub, FaGitlab, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -14,15 +15,17 @@ const Footer: React.FC = () => {
               résultats.
             </p>
             <div className="flex gap-4">
-              {[Mail].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-cyan-500 hover:text-black transition-all"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              {[Mail, FaLinkedin, FaTwitter, FaGithub, FaGitlab].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-cyan-500 hover:text-black transition-all"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ),
+              )}
             </div>
           </div>
 
@@ -90,7 +93,7 @@ const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2024 DEVNETIX. Tous droits réservés.
+            © {new Date().getFullYear()} DEVNETIX. Tous droits réservés.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-white transition-colors">

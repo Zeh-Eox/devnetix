@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowBigRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const Hero: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -12,8 +12,12 @@ const Hero: React.FC = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const updateCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    updateCanvasSize();
 
     const particles: {
       x: number;
@@ -22,7 +26,9 @@ const Hero: React.FC = () => {
       vy: number;
       size: number;
     }[] = [];
-    const particleCount = 100;
+
+    // Adapte le nombre de particules selon la taille de l'écran
+    const particleCount = window.innerWidth < 768 ? 50 : 100;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -74,8 +80,7 @@ const Hero: React.FC = () => {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      updateCanvasSize();
     };
 
     window.addEventListener("resize", handleResize);
@@ -87,64 +92,70 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black mt-24 lg:mt-12">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 sm:pt-24 lg:pt-12">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
+          {/* Badge */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6 sm:mb-8"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2 }}
           >
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-cyan-400 text-sm font-medium tracking-wider uppercase">
+            <span className="text-cyan-400 text-xs sm:text-sm font-medium tracking-wider uppercase">
               Transformation Digitale
             </span>
           </motion.div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+          {/* Titre principal */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight">
             <span className="bg-linear-to-r from-white via-cyan-200 to-blue-400 bg-clip-text text-transparent">
               DEVNETIX
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+          {/* Description */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-10 lg:mb-12 leading-relaxed px-4">
             L'excellence technologique à votre service.
             <span className="text-white font-semibold"> Développement</span>,
             <span className="text-white font-semibold"> Data</span> &
-            <span className="text-white font-semibold"> Réseau</span> pour
+            <span className="text-white font-semibold"> Modélisation</span> pour
             propulser votre entreprise dans le futur.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              className="group px-8 py-4 bg-linear-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+          {/* Boutons CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md mx-auto sm:max-w-none">
+            <motion.a
+              className="cursor-pointer group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-linear-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white text-sm sm:text-base flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              href="#contact"
             >
               Démarrer un projet
-              <ArrowBigRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+            </motion.a>
 
-            <motion.button
-              className="px-8 py-4 border border-white/20 rounded-full font-semibold text-white hover:bg-white/5 transition-all"
+            <motion.a
+              className="cursor-pointer w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-white/20 rounded-full font-semibold text-white text-sm sm:text-base hover:bg-white/5 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              href="#services"
             >
               Nos services
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-white/10 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
@@ -156,10 +167,10 @@ const Hero: React.FC = () => {
             { value: "24/7", label: "Support" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-500 uppercase tracking-wider">
+              <div className="text-xs sm:text-sm text-gray-500 uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>
@@ -167,9 +178,12 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      {/* Gradient Orbs - Adaptés pour mobile */}
+      <div className="absolute top-1/4 left-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+      <div
+        className="absolute bottom-1/4 right-1/4 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: "1s" }}
+      />
     </section>
   );
 };
