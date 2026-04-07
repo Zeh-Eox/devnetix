@@ -14,6 +14,29 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+
+    setIsMobileMenuOpen(false);
+
+    setTimeout(() => {
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        window.history.pushState(null, "", href);
+      }
+    }, 100);
+  };
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -39,6 +62,7 @@ const Navigation: React.FC = () => {
               key={item}
               href={`#${item.toLowerCase()}`}
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              onClick={(e) => handleNavClick(e, `#${item.toLowerCase()}`)}
             >
               {item}
             </a>
@@ -74,7 +98,7 @@ const Navigation: React.FC = () => {
               key={item}
               href={`#${item.toLowerCase()}`}
               className="block text-gray-300 hover:text-white py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, `#${item.toLowerCase()}`)}
             >
               {item}
             </a>
