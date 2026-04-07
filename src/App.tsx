@@ -1,21 +1,17 @@
-import CTA from "./components/CTA";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import TeamCarousel from "./components/TeamCarousel";
+import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import Process from "./components/Process";
-import Services from "./components/Services";
+import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App: React.FC = () => {
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden scroll-smooth">
       <Navigation />
-      <Hero />
-      <Services />
-      <TeamCarousel />
-      <Process />
-      <CTA />
-      <Footer />
+
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/policy" Component={PrivacyPolicy} />
+      </Routes>
     </div>
   );
 };

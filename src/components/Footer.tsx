@@ -95,14 +95,6 @@ const Footer: React.FC = () => {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} DEVNETIX. Tous droits réservés.
           </p>
-          <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">
-              Mentions légales
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Politique de confidentialité
-            </a>
-          </div>
         </div>
       </div>
     </footer>

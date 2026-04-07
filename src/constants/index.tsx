@@ -1,5 +1,14 @@
-import { Calculator, Code2, Database, Globe, Shield, Zap } from "lucide-react";
-import type { Service, TeamMember } from "../types";
+import {
+  Calculator,
+  Code2,
+  Database,
+  Globe,
+  Lock,
+  Shield,
+  UserCheck,
+  Zap,
+} from "lucide-react";
+import type { Service, Stat, TeamMember } from "../types";
 
 export const teamMembers: TeamMember[] = [
   {
@@ -135,3 +144,10 @@ export const accentColors = {
     line: "from-rose-500/60 via-rose-400/40 to-transparent",
   },
 };
+
+export const stats: Stat[] = [
+  { icon: Lock, label: "Chiffrement SSL", value: "256-bit" },
+  { icon: Shield, label: "Conformité", value: "RGPD" },
+  { icon: Database, label: "Stockage", value: "EU" },
+  { icon: UserCheck, label: "Contrôle", value: "Total" },
+];

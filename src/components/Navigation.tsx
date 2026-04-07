@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,29 +15,6 @@ const Navigation: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    e.preventDefault();
-
-    setIsMobileMenuOpen(false);
-
-    setTimeout(() => {
-      const targetId = href.replace("#", "");
-      const element = document.getElementById(targetId);
-
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        window.history.pushState(null, "", href);
-      }
-    }, 100);
-  };
 
   return (
     <motion.nav
@@ -57,22 +36,26 @@ const Navigation: React.FC = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {["Services", "Equipe", "Methodologie", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              onClick={(e) => handleNavClick(e, `#${item.toLowerCase()}`)}
-            >
-              {item}
-            </a>
-          ))}
-          <a
-            className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors cursor-pointer"
-            href="#contact"
+          <Link
+            to={"/"}
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
           >
-            Démarrer
-          </a>
+            Accueil
+          </Link>
+          <Link
+            to={`/policy`}
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          >
+            Politique
+          </Link>
+          {location.pathname !== "/policy" ? (
+            <a
+              className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors cursor-pointer"
+              href="#contact"
+            >
+              Démarrer
+            </a>
+          ) : null}
         </div>
 
         <button
@@ -93,16 +76,20 @@ const Navigation: React.FC = () => {
         }}
       >
         <div className="px-4 py-6 space-y-4">
-          {["Services", "Equipe", "Methodologie", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+          <>
+            <Link
+              to={"/"}
               className="block text-gray-300 hover:text-white py-2"
-              onClick={(e) => handleNavClick(e, `#${item.toLowerCase()}`)}
             >
-              {item}
-            </a>
-          ))}
+              Accueil
+            </Link>
+            <Link
+              to={"/policy"}
+              className="block text-gray-300 hover:text-white py-2"
+            >
+              Politique
+            </Link>
+          </>
         </div>
       </motion.div>
     </motion.nav>

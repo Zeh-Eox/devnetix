@@ -28,7 +28,12 @@ const Hero: React.FC = () => {
     }[] = [];
 
     // Adapte le nombre de particules selon la taille de l'écran
-    const particleCount = window.innerWidth < 768 ? 50 : 100;
+    const particleCount =
+      window.innerWidth < 768
+        ? 30 // Mobile/Téléphone
+        : window.innerWidth < 1024
+          ? 60 // Tablette
+          : 100; // Laptop/Desktop
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({

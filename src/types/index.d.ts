@@ -1,6 +1,4 @@
-/// <reference lib="es2023" />
-/// <reference lib="dom" />
-/// <reference lib="dom.iterable" />
+import type { LucideIcon } from "lucide-react";
 
 export interface TeamMember {
   id: number;
@@ -17,3 +15,9 @@ export interface Service {
   features: string[];
   color: string;
 }
+
+export type Stat = {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+};
