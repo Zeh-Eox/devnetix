@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-cyan-400 transition-colors">
-                  Infrastructure Cloud
+                  Modélisation Mathématique
                 </a>
               </li>
               <li>

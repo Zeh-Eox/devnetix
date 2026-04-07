@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 4,
     name: "Songkieta KIEMTORE",
-    role: "N/A",
+    role: "Responsable Produit",
     domain: "Développement frontend",
     color: "from-orange-500 to-amber-400",
   },
