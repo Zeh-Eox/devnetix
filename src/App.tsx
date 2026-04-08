@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import Home from "./pages/Home";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Navigation from "@/components/Navigation";
+import Home from "@/pages/Home";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Contact from "@/pages/Contact";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/policy" Component={PrivacyPolicy} />
+        <Route path="/contact" Component={Contact} />
       </Routes>
     </div>
   );

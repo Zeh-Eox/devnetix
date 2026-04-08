@@ -8,7 +8,7 @@ import {
   UserCheck,
   Zap,
 } from "lucide-react";
-import type { Service, Stat, TeamMember } from "../types";
+import type { Service, Stat, TeamMember } from "@/types";
 
 export const teamMembers: TeamMember[] = [
   {

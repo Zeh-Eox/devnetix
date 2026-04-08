@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useCallback } from "react";
 import { Cpu, ChevronLeft, ChevronRight } from "lucide-react";
-import { teamMembers } from "../constants";
+import { teamMembers } from "@/constants";
 
 const TeamCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

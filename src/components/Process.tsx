@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { accentColors, steps } from "../constants";
+import { accentColors, steps } from "@/constants";
 
 const Process: React.FC = () => {
   return (

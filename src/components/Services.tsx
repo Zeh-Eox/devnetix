@@ -1,4 +1,4 @@
-import { services } from "../constants";
+import { services } from "@/constants";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 

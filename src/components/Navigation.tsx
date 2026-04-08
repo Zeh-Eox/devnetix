@@ -43,12 +43,19 @@ const Navigation: React.FC = () => {
             Accueil
           </Link>
           <Link
+            to={`/contact`}
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          >
+            Contactez-nous
+          </Link>
+          <Link
             to={`/policy`}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
           >
             Politique
           </Link>
-          {location.pathname !== "/policy" ? (
+          {location.pathname !== "/policy" &&
+          location.pathname !== "/contact" ? (
             <a
               className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors cursor-pointer"
               href="#contact"
@@ -83,6 +90,13 @@ const Navigation: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Accueil
+            </Link>
+            <Link
+              to={"/contact"}
+              className="block text-gray-300 hover:text-white py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contactez-nous
             </Link>
             <Link
               to={"/policy"}

@@ -10,8 +10,8 @@ import {
   Mail,
   FileText,
 } from "lucide-react";
-import AccordionSection from "../components/ui/AccordionSection";
-import { stats } from "../constants";
+import AccordionSection from "@/components/layouts/AccordionSection";
+import { stats } from "@/constants";
 
 const PrivacyPolicy: React.FC = () => {
   return (
