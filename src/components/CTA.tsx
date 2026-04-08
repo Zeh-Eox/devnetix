@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CTA: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="py-32 relative overflow-hidden" id="contact">
@@ -57,7 +60,7 @@ const CTA: React.FC = () => {
                 className="group relative w-full sm:w-auto px-8 sm:px-10 lg:px-12 py-4 sm:py-5 bg-linear-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-base sm:text-lg overflow-hidden transition-all hover:shadow-2xl hover:shadow-cyan-500/50"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => navigate("/contact")}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Contactez-nous maintenant
