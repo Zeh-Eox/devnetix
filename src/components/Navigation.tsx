@@ -28,12 +28,12 @@ const Navigation: React.FC = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a
+        <Link
           className="cursor-pointer text-2xl font-bold text-white tracking-tighter"
-          href="/"
+          to="/"
         >
           DEV<span className="text-cyan-400">NETIX</span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
           <NavLink
