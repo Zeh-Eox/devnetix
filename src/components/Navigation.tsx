@@ -80,12 +80,14 @@ const Navigation: React.FC = () => {
             <Link
               to={"/"}
               className="block text-gray-300 hover:text-white py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Accueil
             </Link>
             <Link
               to={"/policy"}
               className="block text-gray-300 hover:text-white py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Politique
             </Link>
