@@ -15,8 +15,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Field, FieldLabel, FieldGroup } from "@/components/ui/field";
 import {
   InputGroup,
@@ -27,7 +25,7 @@ import {
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden mt-18 lg:mt-0">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-linear-to-br from-cyan-950/30 via-background to-blue-950/30" />
 
@@ -127,7 +125,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-card/80 backdrop-blur-xl border-border/50 shadow-2xl shadow-cyan-500/5">
+              <Card className="backdrop-blur-xl border-border/50 shadow-2xl shadow-cyan-500/5 bg-black/5">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-xl bg-linear-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">

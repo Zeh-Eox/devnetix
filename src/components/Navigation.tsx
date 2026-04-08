@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,26 +36,57 @@ const Navigation: React.FC = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link
+          <NavLink
             to={"/"}
-            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-cyan-400 underline"
+                  : "text-gray-300 hover:text-white"
+              }`
+            }
           >
             Accueil
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            to={"/about"}
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-cyan-400 underline"
+                  : "text-gray-300 hover:text-white"
+              }`
+            }
+          >
+            A Propos
+          </NavLink>
+          <NavLink
             to={`/contact`}
-            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-cyan-400 underline"
+                  : "text-gray-300 hover:text-white"
+              }`
+            }
           >
             Contactez-nous
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={`/policy`}
-            className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+            className={({ isActive }) =>
+              `text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-cyan-400 underline"
+                  : "text-gray-300 hover:text-white"
+              }`
+            }
           >
             Politique
-          </Link>
+          </NavLink>
           {location.pathname !== "/policy" &&
-          location.pathname !== "/contact" ? (
+          location.pathname !== "/contact" &&
+          location.pathname !== "/about" ? (
             <a
               className="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-colors cursor-pointer"
               href="#contact"
@@ -90,6 +121,13 @@ const Navigation: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Accueil
+            </Link>
+            <Link
+              to={"/about"}
+              className="block text-gray-300 hover:text-white py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              A Propos
             </Link>
             <Link
               to={"/contact"}

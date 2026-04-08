@@ -59,7 +59,10 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-4">Entreprise</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-cyan-400 transition-colors">
+                <a
+                  href="/about"
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   À propos
                 </a>
               </li>
@@ -74,7 +77,10 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-400 transition-colors">
+                <a
+                  href="/contact"
+                  className="hover:text-cyan-400 transition-colors"
+                >
                   Contact
                 </a>
               </li>

@@ -1,11 +1,18 @@
 import {
+  Award,
   Calculator,
+  CheckCircle,
   Code2,
   Database,
   Globe,
+  Heart,
+  Lightbulb,
   Lock,
+  Rocket,
   Shield,
+  TrendingUp,
   UserCheck,
+  Users,
   Zap,
 } from "lucide-react";
 import type { Service, Stat, TeamMember } from "@/types";
@@ -150,4 +157,134 @@ export const stats: Stat[] = [
   { icon: Shield, label: "Conformité", value: "RGPD" },
   { icon: Database, label: "Stockage", value: "EU" },
   { icon: UserCheck, label: "Contrôle", value: "Total" },
+];
+
+export const statsAbout = [
+  { value: "2024", label: "Année de création", icon: Rocket },
+  { value: "150+", label: "Projets livrés", icon: CheckCircle },
+  { value: "50+", label: "Clients satisfaits", icon: Heart },
+  { value: "15", label: "Experts passionnés", icon: Users },
+];
+
+export const values = [
+  {
+    icon: <Lightbulb className="w-6 h-6" />,
+    title: "Innovation",
+    description:
+      "Nous repoussons constamment les limites technologiques pour offrir des solutions de pointe à nos clients.",
+    color: "from-yellow-500 to-orange-400",
+  },
+  {
+    icon: <Shield className="w-6 h-6" />,
+    title: "Excellence",
+    description:
+      "Qualité irréprochable dans chaque ligne de code, chaque analyse de données, chaque infrastructure déployée.",
+    color: "from-blue-500 to-cyan-400",
+  },
+  {
+    icon: <Heart className="w-6 h-6" />,
+    title: "Engagement",
+    description:
+      "Votre succès est notre mission. Nous nous investissons pleinement dans chaque projet comme s'il était le nôtre.",
+    color: "from-pink-500 to-rose-400",
+  },
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Collaboration",
+    description:
+      "Transparence, communication et travail d'équipe sont au cœur de notre approche pour des résultats optimaux.",
+    color: "from-purple-500 to-indigo-400",
+  },
+];
+
+export const expertise = [
+  {
+    icon: <Code2 className="w-8 h-8" />,
+    title: "Développement",
+    description:
+      "Applications web et mobile sur mesure avec les technologies les plus modernes",
+    technologies: ["React", "Node.js", "Python", "TypeScript"],
+    color: "from-blue-600 to-cyan-400",
+  },
+  {
+    icon: <Database className="w-8 h-8" />,
+    title: "Data & Analytics",
+    description:
+      "Transformation de vos données en insights actionnables pour la prise de décision",
+    technologies: ["Big Data", "ML/AI", "Power BI", "Tableau"],
+    color: "from-purple-600 to-pink-400",
+  },
+  {
+    icon: <Calculator className="w-8 h-8" />,
+    title: "Modélisation mathématique",
+    description:
+      "Conception de modèles mathématiques pour analyser et optimiser des systèmes complexes",
+    technologies: ["Optimisation", "Statistiques", "Simulation"],
+    color: "from-indigo-600 to-purple-500",
+  },
+];
+
+export const timeline = [
+  {
+    year: "2024",
+    title: "Lancement de DEVNETIX",
+    description:
+      "Fondation de l'entreprise avec une vision claire : démocratiser l'excellence technologique.",
+    icon: Rocket,
+  },
+  {
+    year: "2024 Q2",
+    title: "Premiers clients majeurs",
+    description:
+      "Signature de nos premiers contrats avec des entreprises du CAC 40 et scale-ups prometteuses.",
+    icon: TrendingUp,
+  },
+  {
+    year: "2024 Q4",
+    title: "Extension de l'équipe",
+    description:
+      "Recrutement de talents exceptionnels en développement, data science et infrastructure.",
+    icon: Users,
+  },
+  {
+    year: "2025",
+    title: "Reconnaissance du marché",
+    description:
+      "Certification ISO 27001 et partenariats stratégiques avec les leaders du cloud.",
+    icon: Award,
+  },
+  {
+    year: "2026",
+    title: "Expansion internationale",
+    description:
+      "Ouverture de bureaux en Europe et accompagnement de +50 entreprises dans leur transformation digitale.",
+    icon: Globe,
+  },
+];
+
+export const team = [
+  {
+    name: "Serges THIOMBIANO",
+    role: "CEO & Fondateur",
+    bio: "",
+    color: "from-blue-500 to-cyan-400",
+  },
+  {
+    name: "Arnold CONVOLBO",
+    role: "Vice CEO",
+    bio: "",
+    color: "from-purple-500 to-pink-400",
+  },
+  {
+    name: "Mansour DIANDA",
+    role: "Responsable Sécurité",
+    bio: "",
+    color: "from-emerald-500 to-teal-400",
+  },
+  {
+    name: "Songkieta KIEMTORE",
+    role: "Responsable Produit",
+    bio: "",
+    color: "from-orange-500 to-amber-400",
+  },
 ];
